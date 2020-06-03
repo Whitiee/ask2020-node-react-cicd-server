@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-    node: circleci/node@2.1.0
+    node: circleci/node@3.0.0
 jobs:
     deploy:
         enviroment:
@@ -49,13 +49,11 @@ workflows:
             - build-and-test-client:
                 filters:
                     branches:
-                        only:
-                            - master
+                        only: master
             - build-and-test-server:
                 filters:
                     branches:
-                        only:
-                            - master
+                        only: master
             - deploy: 
                 requires: 
                     - build-and-test-client
